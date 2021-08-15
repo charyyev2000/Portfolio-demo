@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
+import styled from "styled-components";
+import HorizontalScroll from "react-scroll-horizontal";
+import Nav from "./components/Nav";
+import { BrowserRouter } from "react-router-dom";
+// import GlobalStyle from "./GlobalStyle";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+// import Projects from "./components/Projects";
+
+const Body = styled.section`
+  width: 100vw;
+  height: 100vh;
+`;
+
+// install react router dom
+ReactDom.render(
+  <React.Fragment>
+    <Body>
+      <BrowserRouter>
+        <Nav />
+      </BrowserRouter>
+      <HorizontalScroll reverseScroll={true}>
+        <App />
+      </HorizontalScroll>
+    </Body>
+  </React.Fragment>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
