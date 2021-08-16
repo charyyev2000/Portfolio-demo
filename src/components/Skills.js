@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { FaHtml5 as HTML } from "react-icons/fa";
 import { FaCss3Alt as CSS } from "react-icons/fa";
 import { IoLogoJavascript as JS } from "react-icons/io";
@@ -21,6 +22,7 @@ const SkillsSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 
   .title {
     position: absolute;
@@ -29,6 +31,7 @@ const SkillsSection = styled.section`
     top: 0;
     left: 70px;
     color: #fff;
+    z-index: 2;
   }
   @media screen and (max-width: 1000px) {
     width: 200vw;
@@ -43,6 +46,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  z-index: 2;
 
   @media screen and (max-width: 800px) {
   }
@@ -111,11 +115,63 @@ const SkillsContainer = styled.div`
   }
 `;
 
+const TextBg = styled(motion.h1)`
+  position: absolute;
+  top: -150px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: clamp(200px, 29vw, 40em);
+  letter-spacing: 5px;
+  -webkit-text-fill-color: #1b4f72;
+  -webkit-text-stroke: 1px black;
+  line-height: 1.1;
+  opacity: 0.15;
+  z-index: 1;
+  user-select: none;
+
+  h1 {
+    position: absolute;
+    left: -50px;
+    font-size: clamp(200px, 29vw, 40em);
+  }
+  h2 {
+    position: absolute;
+    bottom: -100px;
+    font-size: clamp(150px, 29vw, 40em);
+  }
+`;
+
+const Animation = {
+  h1: {
+    x: "-40vw",
+    transition: {
+      yoyo: Infinity,
+      duration: 25,
+      ease: "linear"
+    }
+  },
+  h2: {
+    x: "50vw",
+    transition: {
+      yoyo: Infinity,
+      duration: 40,
+      ease: "linear"
+    }
+  }
+};
 function Skills() {
   return (
     <SkillsSection id="skills">
       <h1 className="title">About / Skills</h1>
-
+      <TextBg>
+        <motion.h1 variants={Animation} animate="h1">
+          About
+        </motion.h1>
+        <motion.h2 variants={Animation} animate="h2">
+          Skills
+        </motion.h2>
+      </TextBg>
       <Container>
         <AboutContainer>
           <p>
