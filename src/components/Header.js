@@ -137,7 +137,7 @@ function Header() {
         </h1>
         <HeaderText>
           <h2>
-            <span>Front End</span> Developer
+            <span>Full Stack</span> Developer
           </h2>
           <Button
             style={{ marginTop: "15px" }}
